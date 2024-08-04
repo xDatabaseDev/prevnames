@@ -3,7 +3,7 @@ from threading import Thread
 
 app = Flask(__name__)
 
-app.route("/")
+@app.route("/")
 def index():
   return "Alive"
 
