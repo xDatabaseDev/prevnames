@@ -5,11 +5,12 @@ import json
 import datetime
 import re
 import asyncio
+import os
 
 # Charger la configuration
 with open('config.json') as f:
     config = json.load(f)
-token = config["token"]
+token = os.environ.get("token")
 prefix = config["prefix"]
 
 intents = discord.Intents.all()
