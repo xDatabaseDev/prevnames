@@ -6,6 +6,8 @@ import datetime
 import re
 import asyncio
 import os
+from keep_alive import keep_alive
+keep_alive()
 
 # Charger la configuration
 with open('config.json') as f:
