@@ -54,21 +54,21 @@ cd prevnames
 Le fichier `keep_alive.py` est déjà en place pour maintenir le bot actif avec un serveur Express minimal. Il est utilisé pour envoyer des requêtes ping régulières via UptimeRobot.
 
 ```python
-from flask import Flask
+from flask import Flask,render_template
 from threading import Thread
 
-app = Flask('')
+app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Le bot est en ligne."
+@app.route("/")
+def index():
+  return "Alive"
 
 def run():
-    app.run(host='0.0.0.0', port=8080)
+  app.run(host='0.0.0.0',port=8080)
 
 def keep_alive():
-    t = Thread(target=run)
-    t.start()
+  t = Thread(target=run)
+  t.start()
 ```
 
 ### 4. UptimeRobot
